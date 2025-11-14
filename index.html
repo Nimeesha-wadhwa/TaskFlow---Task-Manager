@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>TaskFlow — Task Manager</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-section">
+      <img src="images/icon.png" alt="Logo" class="logo-img">
+      <h1 class="heading">TaskFlow</h1>
+      <p class="tag">Simple, clean task manager — plan, track, finish.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- LEFT: form -->
+    <section class="panel form-panel">
+      <h2 class="panel-title">Add a Task</h2>
+      <form id="taskForm" class="task-form" autocomplete="off">
+        <label>Title *</label>
+        <input id="title" required maxlength="120" placeholder="Task title" />
+
+        <label>Description (optional)</label>
+        <textarea id="description" rows="3" placeholder="Notes, subtasks..."></textarea>
+
+        <div class="row">
+          <div class="col">
+            <label>Category</label>
+            <select id="category">
+              <option value="">— Select —</option>
+              <option>College</option>
+              <option>Work</option>
+              <option>Personal</option>
+            </select>
+          </div>
+          <div class="col">
+            <label>Priority</label>
+            <select id="priority">
+              <option value="">— Select —</option>
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <labelfor="Due">Due date</label>
+            <input id="due" type="text" placeholder="YYYY-MM-DD" inputmode="numeric" autocomplete="off" />
+            <span id="dueError" class="field-error" aria-live="polite" style="display:none"></span>
+          </div>
+          <div class="col actions-col">
+            <label>&nbsp;</label>
+            <button id="addBtn" class="btn primary" type="submit">Add Task</button>
+            <button id="clearAll" type="button" class="btn ghost">Clear All</button>
+          </div>
+        </div>
+
+        <div class="row small-actions">
+          <a id="exportBtn" class="link">Export (JSON)</a>
+        </div>
+      </form>
+    </section>
+
+    <!-- CENTER: tasks -->
+    <section class="panel tasks-panel">
+      <div class="tasks-header">
+        <div class="tasks-title">All tasks</div>
+
+        <div class="tasks-controls">
+          <label class="small">Sort</label>
+          <select id="sortSelect" class="sort">
+            <option value="created">Created</option>
+            <option value="due">Due date</option>
+            <option value="priority">Priority</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="taskList" class="task-list">
+        <!-- rendered tasks -->
+      </div>
+
+      <div class="tasks-footer">
+       
+      </div>
+    </section>
+
+    <!-- RIGHT: progress sidebar -->
+    <aside class="panel sidebar">
+      <div class="badge">Overview</div>
+      <div class="progress-wrap">
+        <div id="progressText" class="progress-text">0 / 0 completed</div>
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+        <div id="percentLarge" class="percent-large">0%</div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

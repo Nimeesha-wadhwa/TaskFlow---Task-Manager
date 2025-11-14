@@ -1,0 +1,117 @@
+*{ box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0;
+  color: #21313a;
+  background: #f6f8fb;
+}
+
+/* Header */
+.site-header {
+  background: linear-gradient(90deg,#f0f6ff,#f3f6f7);
+  padding: 28px 12px;
+  border-bottom: 1px solid rgba(34,50,70,0.04);
+  text-align: center;
+}
+.logo-section{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom:contain;
+}
+.logo-img{
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+.heading{
+    font-size: 42px;
+    font-weight: 800;
+    color: #6C5CE7;
+    margin: 0;
+}
+.tag { margin: 4px 0 0; color: #657485; font-size: 13px; }
+
+/* Layout: left (form) | center (tasks) | right (sidebar) */
+.layout {
+  max-width: 1200px;
+  margin: 22px auto;
+  padding: 0 18px;
+  display: grid;
+  grid-template-columns: 420px 1fr 260px;
+  gap: 20px;
+}
+
+/* panels */
+.panel {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(34,46,60,0.04);
+}
+.panel-title { font-size: 20px; color: #17324a; margin-bottom: 10px; font-weight:700; }
+
+/* FORM */
+.task-form label { display:block; font-weight:700; color:#2b3f4f; margin-top:12px; font-size:13px; }
+.task-form input, .task-form textarea, .task-form select {
+  width:100%; padding:11px 12px; margin-top:8px; border-radius:10px; border:1px solid #e7eef6; background:#fbfdff; font-size:15px;
+}
+.task-form textarea { resize:vertical; min-height:70px; }
+
+.row { display:flex; gap:12px; margin-top:10px; align-items:flex-end; }
+.col { flex:1; }
+.actions-col { display:flex; gap:8px; align-items:center; }
+
+.btn { border:0; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:700; }
+.btn.primary { background:#346ef0; color:#fff; }
+.btn.ghost { background:transparent; color:#346ef0; border:1px solid rgba(52,110,240,0.12); border-radius:8px; padding:9px 12px; }
+.btn.outline { background:transparent; color:#346ef0; border:1px solid rgba(52,110,240,0.12); border-radius:8px; padding:8px 10px; }
+
+.small-actions { margin-top:12px; display:flex; gap:18px; align-items:center; }
+.link { color:#60798f; cursor:pointer; font-size:13px; text-decoration:underline; }
+
+/* TASKS (center column) */
+.tasks-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; gap:10px; }
+.tasks-title { font-size:20px; font-weight:800; color:#203248; }
+.tasks-controls label.small { font-size:12px; color:#60798f; display:block; margin-bottom:6px; }
+.sort { padding:8px 10px; border-radius:8px; border:1px solid #e7eef6; }
+
+/* task list */
+.task-list { display:flex; flex-direction:column; gap:14px; min-height:220px; padding-top:6px; }
+.task {
+  display:flex; justify-content:space-between; gap:12px;
+  padding:14px; border-radius:12px; border:1px solid rgba(35,50,70,0.04);
+  background: linear-gradient(180deg,#fff,#fbfdff);
+  align-items:flex-start;
+}
+.task .left { max-width:72%; }
+.task h3 { margin:0 0 6px; font-size:17px; color:#122231; }
+.meta { font-size:13px; color:#6b7a86; margin-bottom:6px; }
+
+/* action buttons (stacked vertically like before) */
+.actions { display:flex; gap:8px; align-items:center; }
+.action-btn { min-width:74px; padding:8px 10px; border-radius:9px; font-weight:800; font-size:13px; cursor:pointer; border:0; }
+.done { background:#9fe6b8; color:#0a5b1f; }
+.edit { background:#ffdf99; color:#7a5a05; }
+.del  { background:#ffd0d6; color:#7e2230; }
+
+/* footer of tasks */
+.tasks-footer { margin-top:18px; display:flex; justify-content:flex-start; gap:12px; }
+
+/* SIDEBAR (progress) */
+.sidebar .badge { font-weight:700; color:#204054; margin-bottom:12px; }
+.progress-wrap { text-align:center; padding:6px; }
+.progress-text { font-weight:700; color:#203248; margin-bottom:8px; }
+.progress-bar { height:14px; background:#eef6fb; border-radius:10px; overflow:hidden;margin-bottom:14px; }
+.progress-fill { height:14px; width:0%; background: #6C5CE7; transition:width .4s ease; }
+.percent-large { font-size:36px; color:#2c4256; font-weight:800; margin-top:6px; }
+
+/* responsive */
+@media (max-width:1100px) {
+  .layout { grid-template-columns: 420px 1fr; }
+  .sidebar { display:none; }
+}
+@media (max-width:780px) {
+  .layout { grid-template-columns: 1fr; padding:12px; }
+  .sidebar { display:none; }
+}
